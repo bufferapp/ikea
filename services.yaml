@@ -1,0 +1,28 @@
+marketing:
+  build:
+    context: ./buffer-marketing
+    dockerfile: Dockerfile.development
+  volumes:
+   - ./buffer-marketing:/usr/src/app/
+  environment:
+   - PORT=80
+  expose:
+   - "80"
+  links:
+   - web:local.buffer.com
+session-service:
+  build:
+    context: ./session-service
+    dockerfile: Dockerfile.development
+  environment:
+    - JWT_SECRET=somethingtemporary
+    - REDIS_URI=redis
+  volumes:
+   - ./session-service:/usr/src/app/
+  expose:
+   - "80"
+  links:
+    - redis
+
+redis:
+  image: redis

@@ -1,0 +1,6 @@
+marketing:
+  repo: git@github.com:bufferapp/buffer-marketing.git
+session-service:
+  repo: git@github.com:bufferapp/session-service.git
+# marketing:
+#   repo: git@github.com:bufferapp/buffer-marketing.git
